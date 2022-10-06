@@ -6,11 +6,11 @@ import SFQControl.GA
 def main():
     parameters=SFQControl.GA.Parameters()
     parameters.deltatheta = 0.032  # 一个SFQ脉冲使得Bloch矢量在Bloch球上绕y轴旋转的角度
-    parameters.Nc = 180  # subsequence所包含的SFQ时钟周期数
-    parameters.Nq = 36  # subsequence所包含的量子比特进动周期数
+    parameters.Nc = 100  # subsequence所包含的SFQ时钟周期数
+    parameters.Nq = 20  # subsequence所包含的量子比特进动周期数
     parameters.omegaSFQ = 2*np.pi*25E9  # SFQ时钟频率
     parameters.anharmonicity = 2*np.pi*250E6  # 非简谐角频率的绝对值
-    parameters.times = 1  # subsequence重复的次数
+    parameters.times = 3  # subsequence重复的次数
     parameters.T_SFQclock = 2*np.pi/parameters.omegaSFQ  # SFQ时钟周期
     parameters.omegaq = parameters.omegaSFQ/parameters.Nc*parameters.Nq  # 量子比特激发态与基态之间能级的角频率
     alpha = 1-(parameters.omegaq-parameters.anharmonicity)/parameters.omegaq
