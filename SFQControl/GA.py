@@ -156,7 +156,8 @@ def popmutation(newpop, pm, Nc, mutnumber):  # 变异
     for i in range(len(newpop)):
         r = np.random.rand()
         if r < pm:
-            for j in range(mutnumber):
+            mutnumber_random=random.randint(1,mutnumber)
+            for j in range(mutnumber_random):
                 pointmutation = round(np.random.rand()*(Nc-1))
                 if newpop[i][pointmutation] == 0:
                     newpop[i][pointmutation] = 1
