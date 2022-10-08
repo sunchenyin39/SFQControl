@@ -40,13 +40,16 @@ def UFRgenerator(omegaq, t, alpha):
     return UFR
 
 
-def UGgenerator(USFQ, UFR, Subsequence, times):
+def UGgenerator(USFQ_P, USFQ_N, UFR, Subsequence, times):
     UG = np.eye(3, dtype=complex)
     for i in range(len(Subsequence)):
         if Subsequence[i] == 0:
             UG = np.matmul(UFR, UG)
+        elif Subsequence[i] == 1:
+            UG = np.matmul(USFQ_P, UG)
+            UG = np.matmul(UFR, UG)
         else:
-            UG = np.matmul(USFQ, UG)
+            UG = np.matmul(USFQ_N, UG)
             UG = np.matmul(UFR, UG)
     UG_temp = UG
     for i in range(times-1):
